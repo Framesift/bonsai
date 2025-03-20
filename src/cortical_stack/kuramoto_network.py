@@ -280,10 +280,10 @@ class KuramotoNetwork:
     
 if (__name__ == "__main__"):
     # Create a network of 100 oscillators
-    network = KuramotoNetwork.create(n_oscillators=100, random_seed=42)
+    network = KuramotoNetwork.create(n_oscillators=128, random_seed=42)
 
     # Run simulation using multiple CPU cores
-    time_series = network.simulate_vectorized(steps=100) #, n_processes=4)
+    time_series = network.simulate_vectorized(steps=256) #, n_processes=4)
 
     # Visualize synchronization between different frequency bands
     alpha_beta_coupling = network.filter_coupling_by_band(source_band='alpha', target_band='beta')
@@ -300,7 +300,7 @@ if (__name__ == "__main__"):
     )
 
     # Run simulation with the transformed network
-    enhanced_time_series = alpha_enhanced.simulate_vectorized(steps=100) #, n_processes=4)
+    enhanced_time_series = alpha_enhanced.simulate_vectorized(steps=256) #, n_processes=4)
    
    # Assuming you have run your simulation and have time_series data
     # time_series should be an xarray DataArray with dimensions [oscillator, time]
