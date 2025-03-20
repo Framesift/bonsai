@@ -49,7 +49,7 @@ dashboard = FeatureVisualizer.create_interactive_comparison(
 # Or served as a web app with: dashboard.servable()
 ```
 
-This framework provides several key benefits for your cortical stack modeling:
+This framework provides several key benefits for cortical stack modeling:
 
 Semantic representation - Using xarray's labeled dimensions keeps track of what each feature represents
 Multi-pathway visualization - Easily compare outputs from different cortical pathways side by side
