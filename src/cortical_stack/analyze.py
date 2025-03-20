@@ -247,7 +247,6 @@ def create_interactive_phase_animation(time_series, sample_rate=10):
     sampled_series = time_series.isel(time=sampled_times)
     
     # Convert to a format holoviews can understand
-    # Create dataframe with oscillator, time, phase, and band
     df_list = []
     
     for t_idx, t in enumerate(sampled_series.time.values):
@@ -278,7 +277,8 @@ def create_interactive_phase_animation(time_series, sample_rate=10):
             pd.DataFrame(data),
             kdims=['angle', 'r'],
             vdims=['band']
-        ).opts(color='band', cmap='Category10', size=8, alpha=0.7, projection='polar')
+        ).opts(color='band', cmap='Category10', s=80, alpha=0.7, projection='polar')
+
         
         return points.relabel(f'Phase distribution at t={time}')
     

@@ -135,7 +135,7 @@ class KuramotoNetwork:
         
         return new_phases
     
-    @timing
+    @timer
     def simulate_vectorized(self, steps=100, dt=0.01):
         """
         Run simulation using vectorized update method and return time series for analysis
@@ -312,7 +312,7 @@ if (__name__ == "__main__"):
     # Display all figures
     for name, fig in analysis_results['figures'].items():
         plt.figure(fig.number)
-        plt.savefig(f"{name}.png", dpi=300, bbox_inches='tight')
+        plt.savefig(f"plots/{name}.png", dpi=300, bbox_inches='tight')
         plt.show()
 
     # Compare two different simulations (e.g., original vs transformed network)
@@ -342,9 +342,9 @@ if (__name__ == "__main__"):
 
     # Compare original and transformed simulations
     comparison_fig = compare_simulations(time_series, enhanced_time_series)
-    plt.savefig("comparison.png", dpi=300, bbox_inches='tight')
+    plt.savefig("plots/comparison.png", dpi=300, bbox_inches='tight')
     plt.show()
 
     # Create an interactive phase animation
     phase_animation = create_interactive_phase_animation(time_series)
-    hv.save(phase_animation, 'phase_animation.html')
+    hv.save(phase_animation, 'plots/phase_animation.html')
